@@ -1,0 +1,28 @@
+[
+  {"pk": 1,
+    "model": "abcm.meetingtype",
+    "fields": {
+      "name": "Tema puntual"
+    }
+  },
+  {"pk": 2,
+    "model": "abcm.meetingtype",
+    "fields": {
+      "name": "Información o acercamiento"
+    }
+  },
+  {"pk": 3,
+    "model": "abcm.meetingtype",
+    "fields": {
+      "name": "Chequeo de compromisos y reportes"
+    }
+  },
+  {"pk": 4,
+    "model": "abcm.meetingtype",
+    "fields": {
+      "name": "Reunión periódica"
+    }
+  }
+]
+
+
