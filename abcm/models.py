@@ -25,13 +25,20 @@ class Meeting(models.Model):
     convener_name = models.ForeignKey('auth.user', verbose_name="Nombre Convocante", related_name="mettings_created")
     objectives = models.TextField("Obejetivos de la reunión", help_text="Listado de objetivos específicos")
     meeting_type = models.ManyToManyField('MeetingType', verbose_name="Tipo de reunión")
-    participants = models.ManyToManyField('auth.user', verbose_name="Participantes")
 
     def __unicode__(self):
         return self.main_objective[:80]
+
 
 class MeetingType(models.Model):
     name = models.CharField(max_length=40)
 
     def __unicode__(self):
         return self.name
+
+
+class Participant(models.Model):
+    meeting = models.ForeignKey(Meeting)
+    user = models.ForeignKey('auth.user', related_name="meetings")
+    invitation = models.BooleanField(default=False)
+    confirmation = models.BooleanField(default=False)

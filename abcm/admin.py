@@ -18,14 +18,24 @@
 from django.contrib import admin
 
 from abcm.forms import MeetingAdminForm
-from abcm.models import Meeting, MeetingType
+from abcm.models import Meeting, MeetingType, Participant
+
+
+class ParticipantInline(admin.TabularInline):
+    model = Participant
 
 
 class MeetingAdmin(admin.ModelAdmin):
+    # list view
     list_display = ('convener_name', 'date_time', 'main_objective')
 
-admin.site.register(Meeting, MeetingAdmin)
+    # add view
+    inlines = [
+        ParticipantInline,
+    ]
 
+
+admin.site.register(Meeting, MeetingAdmin)
 admin.site.register(MeetingType)
 
 
